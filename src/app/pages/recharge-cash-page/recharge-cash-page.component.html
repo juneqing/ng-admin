@@ -1,0 +1,90 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            微信用户提现记录
+            <small>Recharge cash</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>主页</a></li>
+            <li><a href="#">账目管理</a></li>
+            <li class="active"> 微信用户提现记录</li>
+        </ol>
+    </section>
+
+    <!-- <app-table [items]="rechargeRecord" [fileds]="recharegeListFileds"></app-table> -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mailbox-controls">
+                    <!-- Check all button -->
+                    <!-- search form -->
+                    <form action="#" method="get" class="sidebar-form col-md-8">
+                        <div class="input-group">
+                            <input type="text" name="q" class="form-control" [(ngModel)]="keyword" placeholder="输入用户名,关键字">
+                            <span class="input-group-btn">
+                               <button type="submit" name="search" id="search-btn" class="btn btn-flat" (click)="searchUser()"><i class="fa fa-search"></i>
+                               </button>
+                            </span>
+                        </div>
+                    </form>
+                    <!-- /.search form -->
+                    <div class="pull-right marginTop">
+                        {{count}}条记录
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-sm" (click)="lessPage()"><i class="fa fa-chevron-left"></i></button>
+                            <button type="button" class="btn btn-default btn-sm" (click)="morePage()"><i class="fa fa-chevron-right"></i></button>
+                        </div>
+                        <!-- /.btn-group -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">提现栏目管理</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>用户</th>
+                                <th>金额</th>
+                                <th>创建时间</th>
+                                <th>提现状态</th>
+                                <th>操作</th>
+                            </tr>
+                            <tr *ngFor="let getMoney of getmoneys;let i = index">
+                                <td>{{getMoney.user?.nickname}}</td>
+                                <td>{{getMoney.money | money}}</td>
+                                <td *ngIf="getMoney.status==1"> 审核中 </td>
+                                <td *ngIf="getMoney.status==2">提现成功</td>
+                                <td *ngIf="getMoney.status==3">提现失败</td>
+                                <td>
+                                    {{getMoney.createDt | date : 'yyyy-MM-dd'}}
+                                </td>
+                                <td>
+                                    <div class="badge bg-green-active">编辑</div> <span class="badge bg-red" (click)="deleteRechargeRecord(rechargeRecord)">删除</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer clearfix">
+                        <ul class="pagination pagination-sm no-margin pull-right">
+                            <li (click)="lessPage()"><a>&laquo;</a></li>
+                            <li *ngFor="let page of pageSize;let i =index" [class.active]="currentPage==i" (click)="getmoneyList(i)"><a>{{i+1}}</a></li>
+                            <li (click)="morePage()"><a>&raquo;</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.box -->
+                <!-- /.box -->
+            </div>
+
+        </div>
+    </section>
+    <!-- /.content -->
+</div>

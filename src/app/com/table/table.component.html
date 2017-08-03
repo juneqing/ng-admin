@@ -1,0 +1,19 @@
+<h1>{{tableName}}</h1>
+<table>
+
+</table>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th *ngFor="let field of fileds">{{field.label}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items">
+            <td *ngFor="let field of fileds">{{item[field.key]}}</td>
+        </tr>
+
+    </tbody>
+</table>

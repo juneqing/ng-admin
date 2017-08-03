@@ -1,0 +1,97 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            微信用户充值记录
+            <small>Recharge record</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>主页</a></li>
+            <li><a href="#">账目管理</a></li>
+            <li class="active"> 微信用户充值记录</li>
+        </ol>
+    </section>
+
+    <!-- <app-table [items]="rechargeRecord" [fileds]="recharegeListFileds"></app-table> -->
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <div class="mailbox-controls">
+                   
+                    <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
+                    </button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
+                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
+                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
+                    </div>
+                   
+                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
+                    <div class="pull-right">
+                        1-50/200
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>
+                            <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button>
+                        </div>
+                        
+                    </div>
+                    
+                </div> -->
+            </div>
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">充值栏目管理</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>充值微信订单号</th>
+                                <th>活动内容</th>
+                                <th>简述</th>
+                                <th>金额</th>
+                                <th>ip</th>
+                                <th>用户</th>
+                                <th>接口类型</th>
+                                <th>创建时间</th>
+                                <th>操作</th>
+                            </tr>
+                            <tr *ngFor="let chargeRecord of rechargeRecord;let i = index">
+                                <td>{{chargeRecord.out_trade_no}}</td>
+                                <td>{{chargeRecord.body}}</td>
+                                <td>{{chargeRecord.attach}}</td>
+                                <td>{{chargeRecord.total_fee | money}}</td>
+                                <td>{{chargeRecord.spbill_create_ip}}</td>
+                                <td>{{chargeRecord.user?.nickname}}</td>
+                                <td>{{chargeRecord.trade_type}} </td>
+                                <td>
+                                    {{chargeRecord.createDt | date : 'yyyy-MM-dd'}}
+                                </td>
+                                <td>
+                                    <div class="badge bg-green-active">编辑</div> <span class="badge bg-red" (click)="deleteRechargeRecord(rechargeRecord)">删除</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer clearfix">
+                        <ul class="pagination pagination-sm no-margin pull-right">
+                            <li (click)="lessPage()"><a>&laquo;</a></li>
+                            <li *ngFor="let page of pageSize;let i =index" [class.active]="currentPage==i" (click)="getRechargeRecordList(i)"><a>{{i+1}}</a></li>
+                            <li (click)="morePage()"><a>&raquo;</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.box -->
+
+                <!-- /.box -->
+            </div>
+
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
