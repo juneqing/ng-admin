@@ -7,17 +7,25 @@ import { Types } from '../../types'
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  tableName: string = '表单';
-  @Input() items = [];
-
+  @Input() tableName: string = '表单';
+  @Input() api:string='';
   @Input() fileds: Types.Field[];
-
+  items:any[]=[];
 
   constructor(public config: ConfigService) { }
 
   ngOnInit() {
-
+    if(!this.api || !this.fileds || !(this.fileds.length<=0)){
+      throw new Error(`please  inject  property  "api"  "fileds" `);
+    }else{
+        this.getItemList();
+    }
   }
+  async getItemList(){
+    this.items =await this.config.GetServer(this.api);
+  }
+
+  
 
 
 }
