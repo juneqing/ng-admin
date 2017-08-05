@@ -1,0 +1,127 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            广告编辑
+            <small>editUTask</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> 内容管理</a></li>
+            <li>
+                <a href="#">任务管理</a>
+            </li>
+            <li class="active">广告编辑</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- SELECT2 EXAMPLE -->
+        <div class="box box-default">
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!--用户  -->
+                        <div class="box box-success">
+                            <div class="box-header">
+                                <h3 class="box-title">广告信息编辑</h3>
+                            </div>
+                            <div class="box-body">
+                          
+                                <!--标题 -->
+                                <div class="form-group">
+                                    <label for="">标题</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-tag"></i>
+                                        </div>
+                                        <input type="text" class="form-control" [(ngModel)]="editTask.title" disabled>
+                                    </div>
+                                </div>
+                                <!--上传图片-->
+                                <div class="form-group">
+                                    <label for="">上传图片</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-picture-o"></i>
+                                        </div>
+                                        <input type="file" class="form-control" (change)="uploadImage(imageSelectInput.files[0])" #imageSelectInput>
+                                    </div>
+                                </div>
+                                <!-- /.box -->
+                                <button (click)="modifyTask()" class="btn btn-primary">修改</button>
+                                <!-- /.form group -->
+                                <!-- /.box-body -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about the plugin.
+                </div>
+            </div>
+            <!-- /.box -->
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

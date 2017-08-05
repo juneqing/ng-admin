@@ -56,4 +56,8 @@ export class BannerListPageComponent implements OnInit {
   //   await this.getBannerList();
   // }
 
+   async deleteBanner(banner){
+    await this.config.DeleteServer('banner?_id='+banner._id)
+    await this.getBannerList();
+  }
 }

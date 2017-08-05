@@ -16,35 +16,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <div class="col-md-12">
-
-                <!--栏目列表  -->
-                <div class="mailbox-controls">
-                    <div class="row">
-
-                        <div class="col-md-2 col-sm-6 col-xs-12" *ngFor="let taskTag of taskTags;let i =index;" (click)="selectTaskTag(taskTag)">
-                            <div class="info-box   {{selectedTaskTag==taskTag?'bg-yellow':''}} ">
-                                <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">栏目:{{taskTag.name}}</span>
-                                    <span class="info-box-text">排序:{{taskTag.sort}}</span>
-                                    <span class="info-box-text">子任务:{{taskTag.subTaskNum}}</span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button>
-                    </div>
-                    <!-- /.btn-group -->
-
-                    <!-- /.pull-right -->
-                </div>
-            </div>
+            
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
@@ -64,7 +36,6 @@
                                 <th>状态</th>
                                 <th>操作</th>
                             </tr>
-
                             <tr *ngFor="let task of tasks;let i = index">
                                 <td>{{task.title}}</td>
                                 <td>{{task.fee}}</td>
@@ -93,10 +64,8 @@
 
                 </div>
                 <!-- /.box -->
-
                 <!-- /.box -->
             </div>
-
         </div>
     </section>
     <!-- /.content -->

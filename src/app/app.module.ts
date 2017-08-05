@@ -32,6 +32,7 @@ import { BannerEditPageComponent } from './pages/banner-edit-page/banner-edit-pa
 import { TaskRecordListPageComponent } from './pages/task-record-list-page/task-record-list-page.component';
 import { OfficeTaskPageComponent } from './pages/office-task-page/office-task-page.component';
 import { OfficeReleaseEditPageComponent } from './pages/office-release-edit-page/office-release-edit-page.component';
+import { TaskEditPageComponent } from './pages/task-edit-page/task-edit-page.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { OfficeReleaseEditPageComponent } from './pages/office-release-edit-page
     BannerEditPageComponent,
     TaskRecordListPageComponent,
     OfficeTaskPageComponent,
-    OfficeReleaseEditPageComponent
+    OfficeReleaseEditPageComponent,
+    TaskEditPageComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +89,8 @@ import { OfficeReleaseEditPageComponent } from './pages/office-release-edit-page
           { path: 'banner-edit', component: BannerEditPageComponent },
           { path: 'task-record-list', component: TaskRecordListPageComponent },
           { path: 'office-task', component: OfficeTaskPageComponent },
-          { path: 'office-release-edit', component: OfficeReleaseEditPageComponent }
+          { path: 'office-release-edit', component: OfficeReleaseEditPageComponent },
+          {path:'task-edit',component:TaskEditPageComponent}
         ]
       }
     ]),

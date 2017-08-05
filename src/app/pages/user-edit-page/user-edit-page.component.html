@@ -126,19 +126,15 @@
                                         <tr>
                                             <th>_id</th>
                                             <th>提现人</th>
-                                            <th>金额</th>
-                                            <th>支付宝帐号</th>
-                                            <th>支付宝姓名</th>
+                                            <th>金额</th>    
                                             <th>提现申请时间</th>
                                             <th>状态</th>
-                                            <th>操作</th>
+                                            <!-- <th>操作</th> -->
                                         </tr>
                                         <tr *ngFor="let record of getMoneyRequests;let i = index">
                                             <td>{{record._id}}</td>
                                             <td>{{record.user.nickname}}</td>
                                             <td>{{record.money}}</td>
-                                            <td>{{record.alipay}}</td>
-                                            <td>{{record.alipayName}}</td>
                                             <td>{{record.createDt | date:'yyyy-MM-dd hh:mm:ss'}}</td>
                                             <td>
                                                 <a class="badge bg-green-active" routerLink="/admin/get-money-record-edit" [queryParams]="{_id:record._id}">编辑</a> <span class="badge bg-red" (click)="deleteRecord(record)">删除</span></td>

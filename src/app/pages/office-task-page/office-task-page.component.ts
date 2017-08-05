@@ -9,10 +9,20 @@ import { Types } from '../../types';
   styleUrls: ['./office-task-page.component.css']
 })
 export class OfficeTaskPageComponent implements OnInit {
+  selectedOfficeTask={};
   taskTags = [];
   prviewImg='';
   selectedTaskTag;
   newTask = {
+    title: '',
+    taskTag: '',
+    imageUrl: '',
+    totalMoney: 0,
+    shareMoney: 0,
+    websiteUrl: '',
+    content: ''
+  }
+  newTasks = {
     title: '',
     taskTag: '',
     imageUrl: '',
@@ -41,7 +51,6 @@ export class OfficeTaskPageComponent implements OnInit {
   async submitOffice() {
       this.newTask['taskTag']=this.selectedTaskTag._id;
    let newTask = await this.config.PostServer('office-task',this.newTask);
-
    await this.getOfficeTaskList()
   }
   async uploadImage(file:File){
@@ -62,6 +71,11 @@ export class OfficeTaskPageComponent implements OnInit {
    let action =  await this.config.DeleteServer('office-task?_id='+task._id);
    await  this.getOfficeTaskList();
 
+  }
+  async updateOffice(){//数据更新
+    // this.newTasks['taskTag']=this.selectedOfficeTask._id;
+    let newTasks=await this.config.PutServer('office-task?_id='+this.selectedOfficeTask['_id'],this.selectedOfficeTask);
+    await this.getOfficeTaskList()
   }
     
 }

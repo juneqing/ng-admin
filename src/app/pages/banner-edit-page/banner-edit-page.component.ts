@@ -25,6 +25,7 @@ export class BannerEditPageComponent implements OnInit {
     await this.config.PutServer('banner?_id=' + this.editBanner._id, { sort: this.editBanner.sort, bannerImg: this.editBanner.bannerImg });
     this.config.router.navigateByUrl('/admin/banner-list');
   }
+ 
 
   async   uploadImage(file: File) {
     // 文件转换成base64
@@ -33,7 +34,7 @@ export class BannerEditPageComponent implements OnInit {
     // let compressBase64 = await this.config.convertImageToBase64(base64);
     // 上传并返回图片地址
    let url = await this.config.PostServer('uploadBase64',{base64});
-     console.log(url);
+     this.editBanner.bannerImg=url;
   }
 
 
